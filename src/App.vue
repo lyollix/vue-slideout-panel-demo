@@ -22,8 +22,12 @@
       <pre>{{d4.code}}</pre>
     </div>
     <div>
-      <h6><a @click="d5.v=true" href='#demo5'>Demo 5 (+Demo 6) /Nested blocks/</a></h6>
+      <h6><a @click="d5.v=true" href='#demo4'>Demo 5 /Customizing/</a></h6>
       <pre>{{d5.code}}</pre>
+    </div>
+    <div>
+      <h6><a @click="d6.v=true" href='#demo5'>Demo 6 (+Demo 7) /Nested blocks/</a></h6>
+      <pre>{{d6.code}}</pre>
     </div>
 
     <vue-slideout-panel v-model="d1.v" @close="d1.v=false">
@@ -45,10 +49,13 @@
 
     <vue-slideout-panel v-model="d4.v"
          :count=2
+         :showExtra=true
          :widths="['col-8', '60%']"
          :styles="[{padding:0},{padding:'1rem 1rem 4rem'},{same:true}]"
          :classes="['','bg-success','same']"
          closeHtml="<button class='btn btn-success'>Закрыть</button>"
+         closeAllHtml='<button class="btn btn-success"><i class="ti-share-alt" aria-hidden="true"></i></button>'
+         extraHtml="<button class='btn btn-success'><i class='ti-control-forward' aria-hidden='true'></i></button>"
          @close="d4.v=false">
          {{lorem}}
          <div slot="extra">{{lorem}}</div>
@@ -56,19 +63,32 @@
 
     <vue-slideout-panel v-model="d5.v"
          :count=2
-         :widths="['70%', '70%']"
+         :widths="['col-8', '40%']"
+         :styles="[{padding:0},{padding:'1rem 1rem 4rem'},{same:true}]"
+         :classes="['','bg-warning','bg-warning']"
+         closeHtml="<button class='btn btn-warning'>Закрыть</button>"
+         closeAllHtml="<button class='btn btn-warning'><i class='ti-share-alt' aria-hidden='true'></i></button>"
+         extraHtml="<button class='btn btn-warning'><i class='ti-control-forward' aria-hidden='true'></i></button>"
          @close="d5.v=false">
+         {{lorem}}
+         <div slot="extra">{{lorem}}</div>
+    </vue-slideout-panel>
+
+    <vue-slideout-panel v-model="d6.v"
+         :count=2
+         :widths="['70%', '70%']"
+         @close="d6.v=false">
 
          <div>
-           <input type="checkbox" id="chb" v-model="d6.v">
-           <label for="chb">Demo 6</label>
+           <input type="checkbox" id="chb" v-model="d7.v">
+           <label for="chb">Demo 7</label>
          </div>
 
          {{lorem}}
 
-         <vue-slideout-panel v-model="d6.v"
+         <vue-slideout-panel v-model="d7.v"
               :widths="['40%']"
-              @close="d6.v=false">
+              @close="d7.v=false">
               {{lorem}}
          </vue-slideout-panel>
 
@@ -86,7 +106,6 @@
 </template>
 
 <script>
-//  import VueSlideoutPanel from './components/VueSlideoutPanel'
   import VueSlideoutPanel from 'vue-slideout-panel'
 
   let lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit,\
@@ -176,10 +195,13 @@ export default {
         code:
 `<vue-slideout-panel v-model="d4.v"
      :count=2
-     :widths="['col-8','60%']"
+     :showExtra=true
+     :widths="['col-8', '60%']"
      :styles="[{padding:0},{padding:'1rem 1rem 4rem'},{same:true}]"
      :classes="['','bg-success','same']"
      closeHtml="<button class='btn btn-success'>Закрыть</button>"
+     closeAllHtml='<button class="btn btn-success"><i class="ti-share-alt" aria-hidden="true"></i></button>'
+     extraHtml="<button class='btn btn-success'><i class='ti-control-forward' aria-hidden='true'></i></button>"
      @close="d4.v=false">
      {{lorem}}
      <div slot="extra">{{lorem}}</div>
@@ -191,19 +213,36 @@ export default {
         code:
 `<vue-slideout-panel v-model="d5.v"
      :count=2
-     :widths="['70%','70%']"
+     :widths="['col-8', '40%']"
+     :styles="[{padding:0},{padding:'1rem 1rem 4rem'},{same:true}]"
+     :classes="['','bg-warning','bg-warning']"
+     closeHtml="<button class='btn btn-warning'>Закрыть</button>"
+     closeAllHtml="<button class='btn btn-warning'><i class='ti-share-alt' aria-hidden='true'></i></button>"
+     extraHtml="<button class='btn btn-warning'><i class='ti-control-forward' aria-hidden='true'></i></button>"
      @close="d5.v=false">
+     {{lorem}}
+     <div slot="extra">{{lorem}}</div>
+</vue-slideout-panel>`
+      },
+
+      d6: {
+        v:false,
+        code:
+`<vue-slideout-panel v-model="d6.v"
+     :count=2
+     :widths="['70%','70%']"
+     @close="d6.v=false">
 
      <div>
-       <input type="checkbox" id="chbx" v-model="d5.v">
-       <label for="chbx">Demo 6</label>
+       <input type="checkbox" id="chbx" v-model="d7.v">
+       <label for="chbx">Demo 7</label>
      </div>
 
      {{lorem}}
 
-     <vue-slideout-panel v-model="d6.v"
+     <vue-slideout-panel v-model="d7.v"
           :widths="['40%']"
-          @close="d6.v=false">
+          @close="d7.v=false">
           {{lorem}}
      </vue-slideout-panel>
 
@@ -212,7 +251,7 @@ export default {
 </vue-slideout-panel>`
       },
 
-      d6: {v:false}
+      d7: {v:false}
 
     }
   },
