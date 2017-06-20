@@ -112,7 +112,7 @@ export default {
       d1: {
         v:false,
         code:
-`<vue-slideout-panel v-model="d1" @close="d1=false">
+`<vue-slideout-panel v-model="d1.v" @close="d1.v=false">
      {{lorem}}
 </vue-slideout-panel>`
       },
@@ -120,7 +120,7 @@ export default {
       d2: {
         v:false,
         code:
-`<vue-slideout-panel v-model="d2" :count=2 @close="d2=false">
+`<vue-slideout-panel v-model="d2.v" :count=2 @close="d2.v=false">
      {{lorem}}
      <div slot="extra">{{lorem}}</div>
 </vue-slideout-panel>`
@@ -148,7 +148,7 @@ export default {
 `d3.styles: [
   {},
   {
-    backgroundColor: 'lightyellow',
+    backgroundColor: '#ffc29c',
     paddingTop: '2rem',
     paddingBottom: '1rem'
   },
