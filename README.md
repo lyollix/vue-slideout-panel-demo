@@ -1,5 +1,7 @@
 # Demo VueJS Component vue-slideout-panel
 
+Demo: https://lyollix.github.io/vue-slideout-panel-demo
+
 ## Build Setup
 
 ``` bash
